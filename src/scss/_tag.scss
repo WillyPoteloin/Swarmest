@@ -1,0 +1,11 @@
+.tag {
+	width: 20px;
+	height: 20px;
+	background-color: $grey;
+	border-radius: 15px;
+	cursor: pointer;
+
+	&.active {	
+		border: 1px solid $blue;
+	}
+}

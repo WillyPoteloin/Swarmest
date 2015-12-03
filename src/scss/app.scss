@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'task';
+@import 'tag';
+
+header {
+	padding: 10px 15px;
+	h1 {
+		display: inline-block;
+		font-size: 18px;
+	}
+}
+
+.toolbar {
+	max-width: 100%;
+
+	input {
+		display: inline-block;
+	}
+
+	.color-picker {
+		display: inline-block;
+		width: 36px;
+		height: 36px;
+		border: 1px solid $black;
+	}
+}
+
+.filters {
+	max-width: 100%;
+}
+
+.tasks {
+	max-width: 100%;
+	margin: 0px;
+	list-style-type: none;
+
+	li {
+		margin-bottom: 10px;
+
+		&:last-child {
+			float: left !important;
+		}
+	}
+}
+
+.tags {
+
+	list-style-type: none;
+	margin: 0px;
+
+	li {
+		display: inline-block;
+		margin-right: 5px;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+}
