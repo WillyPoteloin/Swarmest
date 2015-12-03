@@ -6,6 +6,6 @@ export default class HelloBox extends React.Component {
     }
 
     render() {
-        return <p>Hey {this.props.name} !</p>
+        return <p>Hey {this.props.name}</p>
     }
 }
