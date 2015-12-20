@@ -15,8 +15,10 @@ var App = React.createClass ({
 			]
 		};
 	},
-	setState() {
-
+	addTask() {
+		var state = this.state;
+		state.tasks.push({id: (state.tasks.length + 1), title: "Task " + (state.tasks.length + 1), tag:{id: 3, color:"red", title:"Tag 3"}});
+		this.setState(state);
 	},
 	render() {
 		return	<div className="content">
@@ -27,6 +29,7 @@ var App = React.createClass ({
 						<div className="columns small-6">
 							<form className="new-task">
 								<input type="text" name="task" placeholder="+ Nouvelle tache" />
+								<a href="#" onClick={this.addTask}>Ajouter une tâche</a>
 							</form>
 						</div>
 						<div className="columns small-4">
