@@ -5,8 +5,9 @@ var htmlWebpackPlugin = require("html-webpack-plugin");
 var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
+	devtool : 'source-map',
 	entry: {
-		app: [path.resolve(ROOT_PATH, "src/index.js")]
+		app: [path.resolve(ROOT_PATH, "src/index")]
 	},
 	output: {
 		path: path.resolve(ROOT_PATH, 'build/'),
