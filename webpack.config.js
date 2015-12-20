@@ -1,14 +1,17 @@
 var webpack = require("webpack");
 var path = require("path");
+var htmlWebpackPlugin = require("html-webpack-plugin");
+
+var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
 	entry: {
-		app: getEntrySources([
-			"./src/app.js"
-		])
+		app: [path.resolve(ROOT_PATH, "src/index.js")]
 	},
 	output: {
-		filename: "./dist/[name].js",
+		path: path.resolve(ROOT_PATH, 'build/'),
+		filename: "bundle.js",
+		publicPath: '/',
 	},
 	module: {
 		loaders: [
@@ -30,14 +33,23 @@ module.exports = {
 				]
 			}
 		]
-	}
+	},
+	devServer: {
+		contentBase: path.resolve(ROOT_PATH, 'build'),
+		historyApiFallback: true,
+		hot: true,
+		inline: true,
+		progress: true,
+		color: true,
+		port: 3000,
+	},
+	resolve: {
+		extensions : ['', '.js', '.jsx']
+	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new htmlWebpackPlugin({
+			title: 'Swarmest'
+		}),
+	]
 };
-
-function getEntrySources(sources) {
-    if (process.env.NODE_ENV !== 'production') {
-        sources.push('webpack-dev-server/client?http://localhost:3000');
-        sources.push('webpack/hot/only-dev-server');
-    }
-
-    return sources;
-}
