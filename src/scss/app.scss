@@ -2,58 +2,76 @@
 @import 'task';
 @import 'tag';
 
+body {
+	margin: 0;
+}
+
 header {
-	padding: 10px 15px;
+	padding: 5px 5px;
+	background-color: $dark; 
+	box-shadow: 0px -3px 4px -3px rgba(#fff, 0.7) inset;
+	
 	h1 {
 		display: inline-block;
+		padding: 0px 5px;
 		font-size: 18px;
+		color: $blue;
 	}
 }
 
 .toolbar {
-	max-width: 100%;
+	display: flex;
+	padding: 20px 5px;
+	border-bottom: 1px solid rgba($black, 0.3);
+	box-shadow: 0px 2px 5px 0px rgba($black, 0.3);
 
-	input {
-		display: inline-block;
+	.form {
+		margin: 0px 5px;
+	
+		input {
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			padding: 0px 5px;
+			color: rgba($black, 0.7);
+			background-color: rgba($black, 0.02);
+			border: 1px solid rgba($black, 0.3);
+			outline: none;
+			transition: color 0.5s ease-out, border-color 0.5s ease-out, background-color 0.5s ease-out;
+		
+			&:focus {
+				color: $blue;
+				background-color: #fff;
+				border-color: $blue;
+			}
+
+			&[type="button"] {
+				height: 32px;
+				margin: 0px 5px;
+				background-color: $blue;
+				color: #fff;
+				border: none;
+				cursor: pointer;
+				text-transform: uppercase;
+
+				&:hover {
+					background-color: $dark;
+				}
+			}
+		}
+
+		&.searchForm {
+			
+			input[type="text"] {
+				width: 200px;
+			}
+		}
 	}
-
-	.color-picker {
-		display: inline-block;
-		width: 36px;
-		height: 36px;
-		border: 1px solid $black;
-	}
-}
-
-.filters {
-	max-width: 100%;
 }
 
 .tasks {
-	max-width: 100%;
+	display: flex;
+	padding: 20px 5px;
 	margin: 0px;
-	list-style-type: none;
-
-	li {
-		margin-bottom: 10px;
-
-		&:last-child {
-			float: left !important;
-		}
-	}
-}
-
-.tags {
-
-	list-style-type: none;
-	margin: 0px;
-
-	li {
-		display: inline-block;
-		margin-right: 5px;
-
-		&:last-child {
-			margin-right: 0px;
-		}
-	}
+	font-size: 0px;
 }

@@ -11,7 +11,7 @@ var TasksPannel = React.createClass ({
 		});
 
 		return (
-			<div className="tasks_pannel">
+			<div className="tasks">
 				{tasks}
 			</div>
 		);
