@@ -143,7 +143,7 @@
 			"file": "webpack.config.js",
 			"settings":
 			{
-				"buffer_size": 504,
+				"buffer_size": 965,
 				"line_ending": "Unix"
 			}
 		},
@@ -151,20 +151,26 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 433,
+				"buffer_size": 842,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "import React from 'react';\nimport HelloBox from './components/hello.jsx';\n\nReact.render(<HelloBox/>, document.getElementsByTagName('body')[0]);",
 			"file": "src/app.js",
+			"file_size": 143,
+			"file_write_time": 130949444110000000,
 			"settings":
 			{
-				"buffer_size": 30,
+				"buffer_size": 143,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "<!DOCTYPE html>\n<html>\n<head>\n	<title>Swarmest</title>\n</head>\n<body>\n\n<script src=\"http://localhost:3000/dist/app.js\"></script>\n</body>\n</html>",
 			"file": "index.html",
+			"file_size": 144,
+			"file_write_time": 130936500410000000,
 			"settings":
 			{
 				"buffer_size": 144,
@@ -229,6 +235,7 @@
 	},
 	"expanded_folders":
 	[
+		"/Users/willy/Documents/git/swarmest"
 	],
 	"file_history":
 	[
@@ -422,15 +429,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 504,
+						"buffer_size": 965,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								190,
-								190
+								0,
+								0
 							]
 						],
 						"settings":
@@ -450,15 +457,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 433,
+						"buffer_size": 842,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								306,
-								306
+								0,
+								0
 							]
 						],
 						"settings":
@@ -480,15 +487,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 30,
+						"buffer_size": 143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27,
-								27
+								0,
+								0
 							]
 						],
 						"settings":
