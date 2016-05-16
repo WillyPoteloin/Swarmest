@@ -12,7 +12,6 @@ var Task = React.createClass ({
 						<span className="title">{this.props.title}</span>
 					</div>
 					<div className="footer">
-						<Tag id={this.props.id} title={this.props.tag.title} color={this.props.tag.color}/>
 					</div>
 				</div>
 	}

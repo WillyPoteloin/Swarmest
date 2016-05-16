@@ -5,6 +5,7 @@
 	margin-right: 5px;
 	background-color: #fff;
 	box-shadow: 0px 0px 3px 0px rgba($black, 0.3), 0px 2px 5px 0px rgba($black, 0.3);
+	border-radius: 3px;
 
 	.header {
 		min-height: 30px;
@@ -19,13 +20,14 @@
 
 		.title {
 			font-size: 20px;
+			color: rgba($dark, 0.9);
 		}
 	}
 
 	.footer {
 		min-height: 30px;
 		padding: 5px;
-		
+
 		.actions {
 			position: absolute;
 			top: 0px;
@@ -39,7 +41,7 @@
 				width: 10px;
 				margin-bottom: 5px;
 			}
-			
+
 			.delete {
 				text-align: center;
 				line-height: 1rem;

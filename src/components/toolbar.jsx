@@ -8,7 +8,7 @@ var Toolbar = React.createClass ({
 	render() {
 		return (
 			<div className="toolbar">
-				<AddTaskForm />
+				<AddTaskForm {...this.props} />
 				<AddTagForm />
 				<AddSearchForm />
 			</div>
