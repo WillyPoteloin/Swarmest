@@ -11,7 +11,12 @@ var state = {};
 var addNewTask = function() {
 
   // On créer la tâche à rajouter dans la liste de tâche
-  var newTask = Object.assign({}, state.newTask, {id: state.tasks.length + 1, errors: {}});
+  var id = 1;
+  state.tasks.map(function(task){
+      if(id < task.id) id = task.id;
+  });
+  id = id + 1;
+  var newTask = Object.assign({}, state.newTask, {id: id, errors: {}});
 
   if(!newTask.title) {
     newTask.errors.title = 'Vous devez rensigner le titre de la tâche';
@@ -31,10 +36,42 @@ var addNewTask = function() {
 
     setState({tasks: tasks, newTask: newTask});
   }
+
+  searchTask(state.taskSearch.value);
 }
 
 var updateNewTask = function(newTask) {
   setState({newTask: newTask});
+}
+
+var deleteTask = function(task) {
+    var tasks = state.tasks;
+
+    var index = tasks.indexOf(task);
+
+    tasks.splice(index, 1);
+
+    setState({tasks:tasks});
+
+    searchTask(state.taskSearch.value);
+}
+
+var searchTask = function(searchValue) {
+
+    var taskSearch = state.taskSearch;
+
+    taskSearch.value = searchValue;
+
+    var tasks = state.tasks;
+
+    if(searchValue) {
+        var regexp = new RegExp(searchValue, 'i');
+        tasks = tasks.filter(function(task) {
+            return regexp.test(task.title);
+        });
+    }
+
+    setState({taskSearch: taskSearch, filtered_tasks: tasks});
 }
 
 var setState = function(changes) {
@@ -49,7 +86,10 @@ setState({
     {id: 3, title: "Task 3", tag:{id: 2, color:"green", title:"Tag 2"}},
     {id: 4, title: "Task 4", tag:{id: 3, color:"red", title:"Tag 3"}},
   ],
+  filtered_tasks: null,
   newTask: {title: "", tag:null, errors: {}},
+  taskSearch: {value: "", handler:searchTask, errors: {}},
   updateNewTask: updateNewTask,
-  addNewTask: addNewTask
+  addNewTask: addNewTask,
+  deleteTask: deleteTask
 });

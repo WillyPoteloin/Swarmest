@@ -4,9 +4,10 @@ import Task from './task';
 var TasksPannel = React.createClass ({
 
 	render() {
-		var tasks = this.props.tasks.map(function(task) {
+			var that = this;
+			var tasks = this.props.tasks.map(function(task) {
 			return (
-				<Task key={task.id} title={task.title} tag={task.tag} />
+				<Task key={task.id} task={task} deleteTask={that.props.deleteTask} />
 			);
 		});
 
