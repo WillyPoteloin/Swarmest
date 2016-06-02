@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './components/app';
+import Moment from 'moment';
 
 const app = document.createElement("div");
 app.setAttribute('id', 'react-app');
@@ -82,10 +83,10 @@ var setState = function(changes) {
 
 setState({
   tasks: [
-    {id: 1, title: "Task 1", tag:{id: 1, color:"blue", title:"Tag 1"}},
-    {id: 2, title: "Task 2", tag:null},
-    {id: 3, title: "Task 3", tag:{id: 2, color:"green", title:"Tag 2"}},
-    {id: 4, title: "Task 4", tag:{id: 3, color:"red", title:"Tag 3"}},
+    {id: 1, title: "Task 1", created_at: Moment().format('X'), tag:{id: 1, color:"blue", title:"Tag 1"}},
+    {id: 2, title: "Task 2", created_at: Moment().format('X'), tag:null},
+    {id: 3, title: "Task 3", created_at: Moment().format('X'), tag:{id: 2, color:"green", title:"Tag 2"}},
+    {id: 4, title: "Task 4", created_at: Moment().format('X'), tag:{id: 3, color:"red", title:"Tag 3"}},
   ],
   filtered_tasks: null,
   newTask: {title: "", tag:null, errors: {}},

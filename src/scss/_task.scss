@@ -1,8 +1,9 @@
 .task {
-	min-width: 250px;
+	flex: 0 1 auto;
+	@include setTaskWidth();
 	margin-bottom: 10px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: $taskMargin;
+	margin-right: $taskMargin;
 	background-color: #fff;
 	box-shadow: 0px 0px 3px 0px rgba($black, 0.3), 0px 2px 5px 0px rgba($black, 0.3);
 	border-radius: 3px;
@@ -77,5 +78,26 @@
 				cursor: pointer;
 			}
 		}
+	}
+}
+
+@media ('max-width:1440px') {
+	.task {
+		@include setTaskWidth(5);
+	}
+}
+@media ('max-width:1280px') {
+	.task {
+		@include setTaskWidth(4);
+	}
+}
+@media ('max-width:980px') {
+	.task {
+		@include setTaskWidth(2);
+	}
+}
+@media ('max-width:680px') {
+	.task {
+		@include setTaskWidth(1);
 	}
 }

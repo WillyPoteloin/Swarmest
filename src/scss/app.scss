@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 @import 'task';
 @import 'tag';
 
@@ -79,6 +80,5 @@ header {
 	flex-wrap: wrap;
 	padding: 20px 5px;
 	margin: 0px;
-	width: 100%;
 	font-size: 0px;
 }

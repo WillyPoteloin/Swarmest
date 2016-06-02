@@ -1,0 +1,3 @@
+@mixin setTaskWidth($nbTasksPerRow: 7) {
+    width: calc((100% - (#{$nbTasksPerRow} * (#{$taskMargin} * 2))) / #{$nbTasksPerRow});
+}
