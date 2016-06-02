@@ -34,23 +34,15 @@ set :repo_url, 'git@gitlab.com:WillyPoteloin/Swarmest.git'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 #
-# namespace :deploy do
-#
-#   after :restart, :clear_cache do
-#     on roles(:web), in: :groups, limit: 3, wait: 10 do
-#       # Here we can do anything such as:
-#       # within release_path do
-#       #   execute :rake, 'cache:clear'
-#       # end
-#     end
-#   end
-#
-# end
+namespace :deploy do
 
-desc "Install npm dependencies and build application"
-task :npm_build do
-    on roles(:web) do |host|
-        execute "npm install && npm run build"
-        info "Installing npm dependencies and building the app"
+    desc "Install npm dependencies and build application"
+    task :npm_build do
+        on roles(:web) do |host|
+            execute "npm install && npm run build"
+            info "Installing npm dependencies and building the app"
+        end
     end
+
+    before :updated, :npm_build
 end
