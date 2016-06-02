@@ -63,15 +63,16 @@ var searchTask = function(searchValue) {
     taskSearch.value = searchValue;
 
     var tasks = state.tasks;
+    var filteredTasks = null;
 
     if(searchValue) {
         var regexp = new RegExp(searchValue, 'i');
-        tasks = tasks.filter(function(task) {
+        filteredTasks = tasks.filter(function(task) {
             return regexp.test(task.title);
         });
     }
 
-    setState({taskSearch: taskSearch, filtered_tasks: tasks});
+    setState({taskSearch: taskSearch, filtered_tasks: filteredTasks});
 }
 
 var setState = function(changes) {

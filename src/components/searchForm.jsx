@@ -9,12 +9,14 @@ var SearchForm = React.createClass ({
 
 		this.props.taskSearch.handler(value);
 	},
+	onSearchTaskSubmit: function(event) {
+		event.preventDefault();
+	},
 
 	render() {
 		return (
-			<form className="form searchForm">
-				<input type="text" name="search" placeholder="Task 1" value={this.props.taskSearch.value} onChange={this.onSearchTaskChange} />
-				<input type="button" value="Search" />
+			<form className="form searchForm" onSubmit={this.onSearchTaskSubmit}>
+				<input type="text" name="search" placeholder="Rechercher" value={this.props.taskSearch.value} onChange={this.onSearchTaskChange} />
 			</form>
 		);
 	}
