@@ -39,7 +39,8 @@ namespace :deploy do
     desc "Install npm dependencies and build application"
     task :npm_build do
         on roles(:web) do |host|
-            execute "npm install && npm run build", "#{release_path}"
+            execute "cd #{release_path}"
+            execute "npm install && npm run build"
             info "Installing npm dependencies and building the app"
         end
     end
