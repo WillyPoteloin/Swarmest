@@ -1,23 +1,26 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Tag from './tag';
+import {removeTask} from '../actions/index';
 
-var Task = React.createClass ({
+const Task = React.createClass ({
 
 	propTypes: {
-		deleteTask: React.PropTypes.func
 	},
 
-	onDelete: function(event) {
+	onDelete: function(event, taskId) {
 		event.preventDefault();
-		this.props.deleteTask(this.props.task);
+
+		this.props.dispatch(removeTask(Object.assign({}, taskId)))
+
 	},
 	render() {
 		return	<div className="task">
 					<div className="header">
-						<a href="#" className="delete" onClick={this.onDelete}>&times;</a>
+						<a href="#" className="delete" onClick={() => {this.onDelete(event, this.props.task.id)}}>&times;</a>
 					</div>
 					<div className="content">
-						<span className="title">{this.props.task.title}</span>
+						<a href="#" className="title">{this.props.task.title}</a>
 					</div>
 					<div className="footer">
 					</div>
@@ -25,4 +28,4 @@ var Task = React.createClass ({
 	}
 });
 
-export default Task;
+export default connect()(Task);

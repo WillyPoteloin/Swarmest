@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/app';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import uuid from 'node-uuid'
 import Moment from 'moment';
+
+// Reducers
+import appReducer from './reducers/index';
+import App from './components/app';
+
+// Creating store
+let store = createStore(appReducer);
 
 const app = document.createElement("div");
 app.setAttribute('id', 'react-app');
@@ -76,22 +85,9 @@ var searchTask = function(searchValue) {
     setState({taskSearch: taskSearch, filtered_tasks: filteredTasks});
 }
 
-var setState = function(changes) {
-  Object.assign(state, changes);
-  ReactDom.render(<App {...state} />, document.querySelector('#react-app'));
-}
-
-setState({
-  tasks: [
-    {id: 1, title: "Task 1", created_at: Moment().format('X'), tag:{id: 1, color:"blue", title:"Tag 1"}},
-    {id: 2, title: "Task 2", created_at: Moment().format('X'), tag:null},
-    {id: 3, title: "Task 3", created_at: Moment().format('X'), tag:{id: 2, color:"green", title:"Tag 2"}},
-    {id: 4, title: "Task 4", created_at: Moment().format('X'), tag:{id: 3, color:"red", title:"Tag 3"}},
-  ],
-  filtered_tasks: null,
-  newTask: {title: "", tag:null, errors: {}},
-  taskSearch: {value: "", handler:searchTask, errors: {}},
-  updateNewTask: updateNewTask,
-  addNewTask: addNewTask,
-  deleteTask: deleteTask
-});
+ReactDom.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.querySelector('#react-app')
+);

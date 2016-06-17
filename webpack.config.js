@@ -30,7 +30,8 @@ module.exports = {
 				exclude: /node_modules/,
 				loaders: [
 					"react-hot",
-					"babel-loader"
+					"babel-loader",
+					"eslint-loader"
 				]
 			}
 		]

@@ -1,22 +1,15 @@
-import React from 'react';
-import Task from './task';
+import {connect} from 'react-redux';
+import TasksList from './tasksList';
 
-var TasksPannel = React.createClass ({
 
-	render() {
-			var that = this;
-			var tasks = this.props.tasks.map(function(task) {
-			return (
-				<Task key={task.id} task={task} deleteTask={that.props.deleteTask} />
-			);
-		});
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks
+    }
+}
 
-		return (
-			<div className="tasks">
-				{tasks}
-			</div>
-		);
-	}
-});
+const TasksPannel = connect(
+	mapStateToProps
+)(TasksList)
 
 export default TasksPannel;
