@@ -2,6 +2,7 @@ var webpack = require("webpack");
 var path = require("path");
 var htmlWebpackPlugin = require("html-webpack-plugin");
 var extractTextWebpackPlugin = require("extract-text-webpack-plugin");
+var autoprefixer = require("autoprefixer");
 
 var ROOT_PATH = path.resolve(__dirname);
 
@@ -23,6 +24,7 @@ module.exports = {
 				include: /src/,
 				loader: extractTextWebpackPlugin.extract([
 					'css',
+					'postcss',
 					'sass'
 				])
 			},
@@ -48,6 +50,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions : ['', '.js', '.jsx']
+	},
+	postcss: function() {
+		return [autoprefixer];
 	},
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
