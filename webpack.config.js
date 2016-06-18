@@ -62,7 +62,8 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new htmlWebpackPlugin({
 			template: path.resolve(ROOT_PATH, 'src/index.html'),
-			inject: true
+			inject: true,
+			favicon: path.resolve(ROOT_PATH, 'src/images/favicons/favicon.ico')
 		})
 	]
 };
