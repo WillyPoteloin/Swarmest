@@ -4,7 +4,8 @@ import TasksList from './tasksList';
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.tasks
+        tasks: state.tasks,
+        filtered_tasks: state.filtered_tasks
     }
 }
 

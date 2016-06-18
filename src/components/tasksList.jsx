@@ -1,22 +1,22 @@
 import React from 'react';
 import Task from './task';
 
-var TasksPannel = React.createClass ({
+const TasksList = React.createClass ({
 
 	render() {
-			var that = this;
-			var tasks = this.props.tasks.map(function(task) {
-			return (
-				<Task key={task.id} task={task} />
-			);
-		});
+			let tasks = this.props.filtered_tasks || this.props.tasks
+			tasks = tasks.map((task) => {
+				return (
+					<Task key={task.id} task={task} />
+				);
+			});
 
 		return (
 			<div className="tasks">
 				{tasks}
 			</div>
-		);
+		)
 	}
 });
 
-export default TasksPannel;
+export default TasksList;

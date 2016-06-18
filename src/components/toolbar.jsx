@@ -1,7 +1,7 @@
 import React from 'react';
 import AddTaskForm from './addTaskForm';
 import AddTagForm from './addTagForm';
-// import AddSearchForm from './searchForm';
+import AddSearchForm from './searchForm';
 
 var Toolbar = React.createClass ({
 
@@ -9,6 +9,7 @@ var Toolbar = React.createClass ({
 		return (
 			<div className="toolbar">
 				<AddTaskForm />
+				<AddSearchForm />
 			</div>
 		);
 	}

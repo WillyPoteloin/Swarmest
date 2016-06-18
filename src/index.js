@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import ReduxThunk from 'redux-thunk';
+import {createStore, applyMiddleware, compose} from 'redux';
 
 // Styles
 import style from './scss/app.scss'
@@ -11,7 +12,13 @@ import appReducer from './reducers/index';
 import App from './components/app';
 
 // Creating store
-let store = createStore(appReducer);
+let store = createStore(
+    appReducer,
+    compose (
+        applyMiddleware(ReduxThunk),
+        window.devToolsExtension && window.devToolsExtension()
+    )
+);
 
 ReactDom.render(
     <Provider store={store}>

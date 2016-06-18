@@ -5,13 +5,15 @@ import TasksPannel from './tasksPannel';
 const App = React.createClass ({
 
 	render() {
-		return	(<div className="content">
-					<header>
-						<h1>Swarmest</h1>
-					</header>
-					<Toolbar />
-					<TasksPannel />
-				</div>)
+		return	(
+			<div className="content">
+				<header>
+					<h1>Swarmest</h1>
+				</header>
+				<Toolbar />
+				<TasksPannel />
+			</div>
+		)
 	}
 });
 

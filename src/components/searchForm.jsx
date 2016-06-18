@@ -1,25 +1,37 @@
-import React from 'react';
+import React from 'react'
+import {connect} from 'react-redux'
+import {filterTasks} from '../actions/index'
 
-var SearchForm = React.createClass ({
+const mapStateToProps = (state) => {
+	return {
+		filter_value: state.filter_value
+	}
+}
 
+const SearchForm = React.createClass ({
+	getInitialState: function() {
+		return {
+			value: this.props.filter_value
+		}
+	},
 	onSearchTaskChange: function(event) {
 		event.preventDefault();
 
-		var value = event.target.value;
+		let value = event.target.value;
 
-		this.props.taskSearch.handler(value);
-	},
-	onSearchTaskSubmit: function(event) {
-		event.preventDefault();
-	},
+		this.props.dispatch(filterTasks(value))
 
+		this.setState(Object.assign({}, this.state, {
+			value: value
+		}));
+	},
 	render() {
 		return (
 			<form className="form searchForm" onSubmit={this.onSearchTaskSubmit}>
-				<input type="text" name="search" placeholder="Rechercher" value={this.props.taskSearch.value} onChange={this.onSearchTaskChange} />
+				<input type="text" name="search" placeholder="Rechercher" value={this.state.value} onChange={this.onSearchTaskChange} />
 			</form>
-		);
+		)
 	}
-});
+})
 
-export default SearchForm;
+export default connect(mapStateToProps)(SearchForm)

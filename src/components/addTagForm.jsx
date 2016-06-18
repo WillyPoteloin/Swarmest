@@ -1,6 +1,6 @@
 import React from 'react';
 
-var AddTagForm = React.createClass ({
+const AddTagForm = React.createClass ({
 
 	render() {
 		return (

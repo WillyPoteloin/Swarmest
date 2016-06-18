@@ -1,31 +1,42 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Tag from './tag';
-import {removeTask} from '../actions/index';
+import {removeTaskAndFilter} from '../actions/index';
+
+const mapStateToProps = (state) => {
+	return {
+		filter_value: state.filter_value
+	}
+}
 
 const Task = React.createClass ({
 
 	propTypes: {
 	},
 
-	onDelete: function(event, taskId) {
+	onDelete: function(event) {
 		event.preventDefault();
 
-		this.props.dispatch(removeTask(Object.assign({}, taskId)))
+		this.props.dispatch(removeTaskAndFilter({
+			id: this.props.task.id,
+			filter_value: this.props.filter_value
+		}))
 
 	},
 	render() {
-		return	<div className="task">
-					<div className="header">
-						<a href="#" className="delete" onClick={() => {this.onDelete(event, this.props.task.id)}}>&times;</a>
-					</div>
-					<div className="content">
-						<a href="#" className="title">{this.props.task.title}</a>
-					</div>
-					<div className="footer">
-					</div>
+		return (
+			<div className="task">
+				<div className="header">
+					<a href="#" className="delete" onClick={this.onDelete}>&times;</a>
 				</div>
+				<div className="content">
+					<a href="#" className="title">{this.props.task.title}</a>
+				</div>
+				<div className="footer">
+				</div>
+			</div>
+		)
 	}
 });
 
-export default connect()(Task);
+export default connect(mapStateToProps)(Task);

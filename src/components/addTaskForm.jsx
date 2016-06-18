@@ -1,8 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addTask} from '../actions';
+import {addTaskAndFilter} from '../actions';
 
-var AddTaskForm = React.createClass ({
+const mapStateToProps = (state) => {
+	return {
+		filter_value: state.filter_value
+	}
+}
+
+const AddTaskForm = React.createClass ({
 
 	propTypes: {
 	},
@@ -24,7 +30,10 @@ var AddTaskForm = React.createClass ({
 
 	onSubmit: function(event) {
 		event.preventDefault();
-		this.props.dispatch(addTask(Object.assign({}, this.state.task)));
+		this.props.dispatch(addTaskAndFilter(Object.assign({}, {
+			task: this.state.task,
+			filter_value: this.props.filter_value
+		})));
 
 		this.setState(Object.assign({}, this.state, {
 			task: {
@@ -43,4 +52,4 @@ var AddTaskForm = React.createClass ({
 	}
 });
 
-export default connect()(AddTaskForm);
+export default connect(mapStateToProps)(AddTaskForm);
