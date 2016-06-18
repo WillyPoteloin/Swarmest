@@ -1,17 +1,19 @@
 var webpack = require("webpack");
 var path = require("path");
 var htmlWebpackPlugin = require("html-webpack-plugin");
+var extractTextWebpackPlugin = require("extract-text-webpack-plugin");
 
 var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
 	devtool : 'source-map',
 	entry: {
-		app: [path.resolve(ROOT_PATH, "src/index")]
+		app: [path.resolve(ROOT_PATH, "src/index")],
+		vendor: [path.resolve(ROOT_PATH, "src/vendor")]
 	},
 	output: {
 		path: path.resolve(ROOT_PATH, 'build/'),
-		filename: "bundle.js",
+		filename: "[name]-[hash].js",
 		publicPath: '/',
 	},
 	module: {
@@ -19,11 +21,10 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				include: /src/,
-				loaders: [
-					'style',
+				loader: extractTextWebpackPlugin.extract([
 					'css',
 					'sass'
-				]
+				])
 			},
 			{
 				test: /\.jsx?$/,
@@ -49,9 +50,14 @@ module.exports = {
 		extensions : ['', '.js', '.jsx']
 	},
 	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor'
+		}),
+		new extractTextWebpackPlugin('[name]-[contenthash].css'),
 		new webpack.HotModuleReplacementPlugin(),
 		new htmlWebpackPlugin({
-			title: 'Swarmest'
-		}),
+			template: path.resolve(ROOT_PATH, 'src/index.html'),
+			inject: true
+		})
 	]
 };
