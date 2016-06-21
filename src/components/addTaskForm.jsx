@@ -30,6 +30,9 @@ const AddTaskForm = React.createClass ({
 
 	onSubmit: function(event) {
 		event.preventDefault();
+
+		if(this.state.task.title == '' || /^\s+$/i.test(this.state.task.title)) return false;
+
 		this.props.dispatch(addTaskAndFilter(Object.assign({}, {
 			task: this.state.task,
 			filter_value: this.props.filter_value

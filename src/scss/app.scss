@@ -2,6 +2,7 @@
 @import 'mixins';
 @import 'task';
 @import 'tag';
+@import 'color-selector';
 
 body {
 	margin: 0;
@@ -29,45 +30,48 @@ header {
 	.form {
 		margin: 0px 5px;
 
-		input {
+		input[type="text"] {
 			display: inline-block;
 			height: 30px;
+			width: 200px;
 			line-height: 30px;
 			padding: 0px 5px;
-			color: rgba($black, 0.7);
-			background-color: rgba($black, 0.02);
-			border: 1px solid rgba($black, 0.3);
+			border: none;
+			color: $blue;
+			border-bottom: 1px solid $blue;
 			outline: none;
-			transition: color 0.5s ease-out, border-color 0.5s ease-out, background-color 0.5s ease-out;
+			font-size: 14px;
+			transition: font-size 0.5s ease-out, color 0.5s ease-out, border-color 0.5s ease-out, background-color 0.5s ease-out;
+			vertical-align: middle;
 
 			&:focus {
-				color: $blue;
-				background-color: #fff;
-				border-color: $blue;
-			}
-
-			&[type="button"], &[type="submit"] {
-				height: 32px;
-				margin: 0px 5px;
-				background-color: $blue;
-				color: #fff;
-				border: none;
-				cursor: pointer;
-				text-transform: uppercase;
-
-				&:hover {
-					background-color: $dark;
-				}
+				font-size: 16px;
 			}
 		}
 
-		&.taskForm {
-			input[type="text"] {
-				width: 200px;
+		input[type="button"], input[type="submit"] {
+			display: inline-block;
+			height: 32px;
+			margin: 0px 5px;
+			color: $blue;
+			border: none;
+			border: 1px solid $blue;
+			background: none;
+			cursor: pointer;
+			text-transform: uppercase;
+			outline: none;
+			transition: font-size 0.5s ease-out, color 0.5s ease-out, border-color 0.5s ease-out, background-color 0.5s ease-out;
+			vertical-align: middle;
+
+			&:hover {
+				background: $blue;
+				color: $black;
 			}
 		}
 
 		&.searchForm {
+			margin-left: 50px;
+
 			input[type="text"] {
 				width: 300px;
 			}

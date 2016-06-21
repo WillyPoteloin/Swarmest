@@ -9,6 +9,7 @@ var Toolbar = React.createClass ({
 		return (
 			<div className="toolbar">
 				<AddTaskForm />
+				<AddTagForm />
 				<AddSearchForm />
 			</div>
 		);

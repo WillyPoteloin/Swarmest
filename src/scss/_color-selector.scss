@@ -1,0 +1,31 @@
+.color-selector {
+    position: relative;
+    display: inline-block;;
+    padding: 5px;
+    vertical-align: middle;
+    font-size: 0;
+
+    .color-selector-color {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        background-color: $blue;
+        border-radius: 20px;
+    }
+
+    .color-selector-proposed {
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: 52px;
+        font-size: 0;
+        padding: 2px;
+        background: #fff;
+        box-shadow: 0px 0px 4px 0px rgba($black, 0.3);
+
+        .color-selector-color {
+            margin: 3px;
+        }
+    }
+}
