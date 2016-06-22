@@ -35,7 +35,7 @@ set :repo_url, 'git@gitlab.com:WillyPoteloin/Swarmest.git'
 # set :keep_releases, 5
 #
 
-set :copy_files, ['.node_modules']
+set :copy_files, ['node_modules']
 set :copy_file_flags, ""
 set :copy_dir_flags, "-R"
 
