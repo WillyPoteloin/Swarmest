@@ -15,8 +15,7 @@ import App from './components/app';
 let store = createStore(
     appReducer,
     compose (
-        applyMiddleware(ReduxThunk),
-        window.devToolsExtension && window.devToolsExtension()
+        applyMiddleware(ReduxThunk)
     )
 );
 

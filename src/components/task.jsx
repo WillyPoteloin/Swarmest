@@ -26,13 +26,13 @@ const Task = React.createClass ({
 	render() {
 		return (
 			<div className="task">
-				<div className="header">
+				<div className="task-header">
 					<a href="#" className="delete" onClick={this.onDelete}>&times;</a>
 				</div>
-				<div className="content">
+				<div className="task-content">
 					<a href="#" className="title">{this.props.task.title}</a>
 				</div>
-				<div className="footer">
+				<div className="task-footer">
 				</div>
 			</div>
 		)
