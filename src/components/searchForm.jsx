@@ -25,6 +25,9 @@ const SearchForm = React.createClass ({
 			value: value
 		}));
 	},
+	onSearchTaskSubmit: function(event) {
+		event.preventDefault()
+	},
 	render() {
 		return (
 			<form className="form searchForm" onSubmit={this.onSearchTaskSubmit}>
