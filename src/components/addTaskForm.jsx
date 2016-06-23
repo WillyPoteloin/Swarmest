@@ -4,7 +4,7 @@ import {addTaskAndFilter} from '../actions';
 
 const mapStateToProps = (state) => {
 	return {
-		filter_value: state.filter_value
+		filter_value: state.tasks.filter_value
 	}
 }
 
@@ -15,7 +15,8 @@ const AddTaskForm = React.createClass ({
 	getInitialState: function() {
 		return {
 			task: {
-				title : ""
+				title : "",
+				tag: null
 			}
 		}
 	},

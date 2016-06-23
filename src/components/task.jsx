@@ -5,7 +5,7 @@ import {removeTaskAndFilter} from '../actions/index';
 
 const mapStateToProps = (state) => {
 	return {
-		filter_value: state.filter_value
+		filter_value: state.tasks.filter_value
 	}
 }
 

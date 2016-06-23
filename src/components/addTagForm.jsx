@@ -1,5 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import ColorSelector from './colorSelector';
+import {addTag} from '../actions/index';
 
 const AddTagForm = React.createClass ({
 	getInitialState: function() {
@@ -27,6 +29,8 @@ const AddTagForm = React.createClass ({
 
 		if(this.state.title == '' || /^\s+$/i.test(this.state.title)) return false;
 
+		this.props.dispatch(addTag(Object.assign({}, this.state)))
+
 		this.setState({
 			title: "",
 			color: "#4DB6AC"
@@ -43,4 +47,4 @@ const AddTagForm = React.createClass ({
 	}
 });
 
-export default AddTagForm;
+export default connect()(AddTagForm);

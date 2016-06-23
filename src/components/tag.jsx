@@ -1,9 +1,13 @@
 import React from 'react';
 
 const Tag = React.createClass ({
-
 	render() {
-		return <span className="tag" style={{backgroundColor: this.props.color}} title={this.props.title} id={this.props.id}></span>
+		return (
+			<div className="tag">
+				<span className="tag-color" style={{backgroundColor: this.props.tag.color}}></span>
+				<span className="tag-title">{this.props.tag.title}</span>
+			</div>
+		)
 	}
 });
 

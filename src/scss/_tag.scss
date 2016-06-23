@@ -1,11 +1,26 @@
 .tag {
-	width: 20px;
-	height: 20px;
-	background-color: $grey;
-	border-radius: 15px;
+
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 
-	&.active {	
-		border: 1px solid $blue;
+	.tag-color {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background-color: $blue;
+		border-radius: 20px;
+	}
+
+	.tag-title {
+		color: $black;
+		display: inline-block;
+		margin-left: 10px;
+	}
+
+	&:hover {
+		.tag-title {
+			color: $blue;
+		}
 	}
 }
