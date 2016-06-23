@@ -31,10 +31,10 @@
     "redux-devtools": "^3.3.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "webpack": "^1.13.1",
     "history": "^1.13.1",
     "moment": "^2.13.0",
     "node-uuid": "^1.4.7",
