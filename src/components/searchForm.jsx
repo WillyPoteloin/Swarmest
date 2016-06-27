@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {filterTasks} from '../actions/index'
+import {changeFilterValue} from '../actions/index'
 
 const mapStateToProps = (state) => {
 	return {
@@ -19,7 +19,7 @@ const SearchForm = React.createClass ({
 
 		let value = event.target.value;
 
-		this.props.dispatch(filterTasks(value))
+		this.props.dispatch(changeFilterValue(value))
 
 		this.setState(Object.assign({}, this.state, {
 			value: value

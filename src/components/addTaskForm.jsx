@@ -4,7 +4,6 @@ import {addTaskAndFilter} from '../actions';
 
 const mapStateToProps = (state) => {
 	return {
-		filter_value: state.tasks.filter_value
 	}
 }
 
@@ -35,8 +34,7 @@ const AddTaskForm = React.createClass ({
 		if(this.state.task.title == '' || /^\s+$/i.test(this.state.task.title)) return false;
 
 		this.props.dispatch(addTaskAndFilter(Object.assign({}, {
-			task: this.state.task,
-			filter_value: this.props.filter_value
+			task: this.state.task
 		})));
 
 		this.setState(Object.assign({}, this.state, {

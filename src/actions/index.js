@@ -15,8 +15,7 @@ export function addTaskAndFilter(data) {
 			task: data.task
 		})
 		dispatch({
-			type: actionTypes.FILTER_TASKS,
-			value: data.filter_value
+			type: actionTypes.FILTER_TASKS
 		})
 	}
 }
@@ -28,24 +27,21 @@ export function removeTaskAndFilter(data) {
 			id: data.id
 		})
 		dispatch({
-			type: actionTypes.FILTER_TASKS,
-			value: data.filter_value
+			type: actionTypes.FILTER_TASKS
 		})
 	}
 }
 
-export function addTask(task) {
-	task.id = uuid.v1();
-	task.creation_time = Moment().format('X');
-	return { type: actionTypes.ADD_TASK, task: task }
-}
-
-export function removeTask(id) {
-	return { type: actionTypes.REMOVE_TASK, id: id }
-}
-
-export function filterTasks(value) {
-	return { type: actionTypes.FILTER_TASKS, value: value }
+export function changeFilterValue(value) {
+	return (dispatch) => {
+		dispatch({
+			type: actionTypes.CHANGE_FILTER_VALUE,
+			value: value
+		})
+		dispatch({
+			type: actionTypes.FILTER_TASKS
+		})
+	}
 }
 
 export function addTag(tag) {

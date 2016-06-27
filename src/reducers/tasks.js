@@ -27,17 +27,21 @@ const tasks = (state = initialState, action) => {
                 items: tasks
             })
             break;
+        case actionTypes.CHANGE_FILTER_VALUE:
+            return Object.assign({}, state, {
+                filter_value: action.value
+            })
+            break;
         case actionTypes.FILTER_TASKS:
-			let filtered_tasks = (action.value) ? [...state.items] : null
+			let filtered_tasks = (state.filter_value) ? [...state.items] : null
 			if(filtered_tasks) {
-				const regexp = new RegExp(action.value, 'i')
+				const regexp = new RegExp(state.filter_value, 'i')
 				filtered_tasks = filtered_tasks.filter((task) => {
 					return (regexp.test(task.title)) ? true : false
 				});
 			}
             return Object.assign({}, state, {
 				filtered_items: filtered_tasks,
-				filter_value: action.value
             })
             break;
         default:

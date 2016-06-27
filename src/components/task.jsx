@@ -5,7 +5,6 @@ import {removeTaskAndFilter} from '../actions/index';
 
 const mapStateToProps = (state) => {
 	return {
-		filter_value: state.tasks.filter_value
 	}
 }
 
@@ -18,8 +17,7 @@ const Task = React.createClass ({
 		event.preventDefault();
 
 		this.props.dispatch(removeTaskAndFilter({
-			id: this.props.task.id,
-			filter_value: this.props.filter_value
+			id: this.props.task.id
 		}))
 
 	},
