@@ -8,6 +8,7 @@ const initialState = {
 }
 
 const tasks = (state = initialState, action) => {
+	let index, tasks, filtered_tasks
     switch (action.type) {
         case actionTypes.ADD_TASK:
             return Object.assign({}, state, {
@@ -18,8 +19,8 @@ const tasks = (state = initialState, action) => {
             })
             break;
         case actionTypes.REMOVE_TASK:
-			let tasks = [...state.items]
-			const index = tasks.findIndex((elem) => {
+			tasks = [...state.items]
+			index = tasks.findIndex((elem) => {
 				return (elem.id == action.id) ? true : false
 			})
 			if(index != -1) tasks.splice(index, 1)
@@ -33,7 +34,7 @@ const tasks = (state = initialState, action) => {
             })
             break;
         case actionTypes.FILTER_TASKS:
-			let filtered_tasks = (state.filter_value) ? [...state.items] : null
+			filtered_tasks = (state.filter_value) ? [...state.items] : null
 			if(filtered_tasks) {
 				const regexp = new RegExp(state.filter_value, 'i')
 				filtered_tasks = filtered_tasks.filter((task) => {

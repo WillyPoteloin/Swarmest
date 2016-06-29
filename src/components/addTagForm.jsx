@@ -7,7 +7,7 @@ const AddTagForm = React.createClass ({
 	getInitialState: function() {
 		return {
 			title: "",
-			color: "#4DB6AC"
+			color: "#0277BD"
 		}
 	},
 	onChangeTitle: function(event) {
@@ -33,7 +33,7 @@ const AddTagForm = React.createClass ({
 
 		this.setState({
 			title: "",
-			color: "#4DB6AC"
+			color: "#0277BD"
 		})
 	},
 	render() {

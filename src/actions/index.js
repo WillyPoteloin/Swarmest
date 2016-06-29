@@ -49,3 +49,10 @@ export function addTag(tag) {
 	tag.creation_time = Moment().format('X')
 	return {type: actionTypes.ADD_TAG, tag: tag}
 }
+
+export function selectTag(tagId) {
+	return {type: actionTypes.SELECT_TAG, id: tagId}
+}
+export function unselectTag(tagId) {
+	return {type: actionTypes.UNSELECT_TAG, id: tagId}
+}

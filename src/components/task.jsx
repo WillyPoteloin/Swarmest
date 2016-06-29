@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Moment from 'moment';
 import Tag from './tag';
 import {removeTaskAndFilter} from '../actions/index';
 
@@ -31,6 +32,7 @@ const Task = React.createClass ({
 					<a href="#" className="title">{this.props.task.title}</a>
 				</div>
 				<div className="task-footer">
+					<span className="time">{Moment(this.props.task.creation_time, 'X').fromNow(true)}</span>
 				</div>
 			</div>
 		)

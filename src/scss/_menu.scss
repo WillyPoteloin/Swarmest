@@ -1,29 +1,41 @@
 .menu {
-    flex: 0 0 210px;
+    flex: 0 0 250px;
     align-self: stretch;
-    margin: 8px;
-    padding: 8px 0px;
-    box-shadow: 0px 0px 5px 0px rgba($black, 0.3);
+    background-color: $grey;
+    border-right: 1px solid $strong-grey;
 
     .menu-section {
         .menu-title {
-            padding: 0px 5px;
-            padding-bottom: 8px;
-            margin: 0px;
+            padding: 10px 0px;
+            margin: 0px 12px;
             font-size: 18px;
             color: $blue;
-            border-bottom: 1px solid $blue;
+            border-bottom: 1px solid $strong-grey;
         }
 
         .menu-list {
-            padding: 5px;
-        }
-    }
+            padding: 8px 0px;
 
+            .menu-item {
+                padding: 8px 12px;
+                cursor: pointer;
 
-    .menu-tags {
-        .tag {
-            margin: 8px 0px;
+                &:hover {
+                    background-color: $light-grey;
+
+                    a, span {
+                        color: $blue;
+                    }
+                }
+
+                &.selected {
+                    background-color: $lighter-blue;
+
+                    a, span {
+                        color: #fff;
+                    }
+                }
+            }
         }
     }
 }

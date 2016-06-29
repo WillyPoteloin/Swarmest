@@ -4,7 +4,7 @@ const ColorSelector = React.createClass({
     getInitialState: function() {
         return {
             selected: this.props.color,
-            proposed: ['#4DB6AC', '#FFB74D', '#FF8A65', '#90A4AE', '#F06292', '#7986CB']
+            proposed: ['#0277BD', '#FFB74D', '#FF8A65', '#90A4AE', '#F06292', '#7986CB']
         }
     },
     componentWillReceiveProps: function(newProps) {

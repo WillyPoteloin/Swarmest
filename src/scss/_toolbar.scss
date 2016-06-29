@@ -3,10 +3,9 @@
     align-items: center;
     flex-shrink: 0;
     z-index: 1;
-	padding: 8px 5px;
-    padding-right: 50px;
-	border-bottom: 1px solid rgba($black, 0.3);
-	box-shadow: 0px 0px 5px 0px rgba($black, 0.3);
+	padding: 10px 5px;
+	border-bottom: 1px solid rgba($dark, 0.4);
+	box-shadow: 0px 0px 5px 0px rgba($black, 0.2);
 
 	.form {
         flex: 0 1 auto;
@@ -21,25 +20,28 @@
 			border: none;
 			color: $blue;
 			outline: none;
-            border-bottom: 1px solid rgba($blue, 0.3);
-			font-size: 14px;
+            border: 1px solid $strong-grey;
+            background-color: #fff;
+			font-size: 16px;
 			transition: font-size 0.5s ease-out, color 0.5s ease-out, border-color 0.5s ease-out, background-color 0.5s ease-out;
 			vertical-align: middle;
 
 			&:focus {
-				font-size: 16px;
-                border-bottom: 1px solid $blue;
+                border-color: $blue;
 			}
+
+            &:-webkit-autofill {
+                box-shadow: 0 0 0px 1000px #fff inset;;
+            }
 		}
 
 		input[type="button"], input[type="submit"] {
 			display: inline-block;
 			height: 32px;
 			margin: 0px 5px;
-			color: $blue;
+			color: #fff;
 			border: none;
-			border: 1px solid $blue;
-			background: none;
+			background: $blue;
 			cursor: pointer;
 			text-transform: uppercase;
 			outline: none;
@@ -47,8 +49,7 @@
 			vertical-align: middle;
 
 			&:hover {
-				background: $blue;
-				color: $black;
+				background: $light-blue;
 			}
 		}
 
@@ -57,7 +58,12 @@
             text-align: right;
 
 			input[type="text"] {
-				width: 300px;
+
+                transition: width 0.5s ease-out;
+
+                &:focus {
+                    width: 300px;
+                }
 			}
 		}
 	}
