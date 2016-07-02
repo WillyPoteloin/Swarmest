@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Modal from 'react-modal';
 import {addTaskAndFilter} from '../actions';
 
 const mapStateToProps = (state) => {
@@ -16,10 +17,28 @@ const AddTaskForm = React.createClass ({
 			task: {
 				title : "",
 				tag: null
+			},
+			modal: {
+				isOpen: false
 			}
 		}
 	},
+	openModal: function(event) {
+		event.preventDefault();
 
+		this.setState(Object.assign({}, this.state, {
+			modal: {
+				isOpen: true
+			}
+		}))
+	},
+	closeModal: function(event) {
+		event.preventDefault();
+
+		let initialState = this.getInitialState();
+
+		this.setState(Object.assign({}, this.state, initialState))
+	},
 	onTitleChange: function(event) {
 		this.setState(Object.assign({}, this.state, {
 			task: {
@@ -42,14 +61,29 @@ const AddTaskForm = React.createClass ({
 				title: ""
 			}
 		}));
+
+		this.closeModal(event)
 	},
 
 	render() {
 		return (
-			<form className="form taskForm" onSubmit={this.onSubmit}>
-				<input type="text" name="task" placeholder="My Task" value={this.state.task.title} onChange={this.onTitleChange} />
-				<input type="submit" value="add" />
-			</form>
+			<div>
+				<form className="form">
+					<input type="button" value="Add task" onClick={this.openModal} />
+				</form>
+				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen}>
+					<h4 className="modal-content-title">Add task</h4>
+					<form className="form taskForm" onSubmit={this.onSubmit}>
+						<label>Task's name</label>
+						<input type="text" name="task" placeholder="My Task" value={this.state.task.title} onChange={this.onTitleChange} />
+						<div className="modal-content-footer">
+							<input type="submit" value="add" />
+							<hr className="clear"/>
+						</div>
+					</form>
+					<a href="#" className="modal-close" onClick={this.closeModal}>+</a>
+				</Modal>
+			</div>
 		);
 	}
 });

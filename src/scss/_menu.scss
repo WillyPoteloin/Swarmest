@@ -11,6 +11,23 @@
             font-size: 18px;
             color: $blue;
             border-bottom: 1px solid $strong-grey;
+
+            .form-tag {
+                float: right;
+                height: 25px;
+                width: 25px;
+                text-align: center;
+
+                .form-tag-open {
+                    font-size: 24px;
+                    color: $strong-grey;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $blue;
+                    }
+                }
+            }
         }
 
         .menu-list {

@@ -1,5 +1,7 @@
 @import 'variables';
 @import 'mixins';
+@import 'modal';
+@import 'form';
 @import 'menu';
 @import 'toolbar';
 @import 'task';
@@ -8,6 +10,11 @@
 
 body {
 	margin: 0;
+}
+
+.clear {
+	clear: both;
+	border: none;
 }
 
 header {

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Tag from './tag'
+import AddTagForm from './addTagForm'
 import {selectTag, unselectTag} from '../actions/index'
 
 const mapStateToProps = (state) => {
@@ -38,7 +39,10 @@ const TagsList = React.createClass({
 
         return (
             <div className="menu-tags menu-section">
-                <h4 className="menu-title">Tags</h4>
+                <h4 className="menu-title">
+                    Tags
+                    <AddTagForm />
+                </h4>
                 <div className="menu-tags-list menu-list">
                     {tags}
                 </div>
