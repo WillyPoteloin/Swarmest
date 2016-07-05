@@ -39,6 +39,9 @@ const AddTaskForm = React.createClass ({
 
 		this.setState(Object.assign({}, this.state, initialState))
 	},
+	afterOpenModal: function() {
+		this.input_focus.focus()
+	},
 	onTitleChange: function(event) {
 		this.setState(Object.assign({}, this.state, {
 			task: {
@@ -71,11 +74,11 @@ const AddTaskForm = React.createClass ({
 				<form className="form">
 					<input type="button" value="Add task" onClick={this.openModal} />
 				</form>
-				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen}>
+				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen} onAfterOpen={this.afterOpenModal}>
 					<h4 className="modal-content-title">Add task</h4>
 					<form className="form taskForm" onSubmit={this.onSubmit}>
 						<label>Task's name</label>
-						<input type="text" name="task" placeholder="My Task" value={this.state.task.title} onChange={this.onTitleChange} />
+						<input type="text" name="task" placeholder="My Task" value={this.state.task.title} ref={ref => {this.input_focus = ref}} onChange={this.onTitleChange} />
 						<div className="modal-content-footer">
 							<input type="submit" value="add" />
 							<hr className="clear"/>

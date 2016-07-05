@@ -32,6 +32,9 @@ const AddTagForm = React.createClass ({
 
 		this.setState(Object.assign({}, this.state, initialState))
 	},
+	afterOpenModal: function() {
+		this.input_focus.focus()
+	},
 	onChangeTitle: function(event) {
 		event.preventDefault();
 
@@ -67,11 +70,11 @@ const AddTagForm = React.createClass ({
 		return (
 			<div className="form-tag">
 				<a href="#" className="form-tag-open" title="Add tag" onClick={this.openModal}>+</a>
-				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen}>
+				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen} onAfterOpen={this.afterOpenModal}>
 					<h4 className="modal-content-title">Add tag</h4>
 					<form className="form tagForm" onSubmit={this.onSubmit}>
 						<label>Tag's name</label>
-						<input type="text" value={this.state.tag.title} name="tag" placeholder="My Tag" onChange={this.onChangeTitle} />
+						<input type="text" value={this.state.tag.title} name="tag" ref={ref => {this.input_focus = ref}} placeholder="My Tag" onChange={this.onChangeTitle} />
 						<label>Tag's color</label>
 						<ColorSelector color={this.state.tag.color} onColorChange={this.onColorChange} />
 						<div className="modal-content-footer">
