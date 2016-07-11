@@ -29,6 +29,13 @@ module.exports = {
 				])
 			},
 			{
+				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+				include: /src/,
+				loaders: [
+					'file-loader'
+				]
+			},
+			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
 				loaders: [
