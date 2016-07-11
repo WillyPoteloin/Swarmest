@@ -16,6 +16,7 @@ const AddTaskForm = React.createClass ({
 		return {
 			task: {
 				title : "",
+				description : "",
 				tag: null
 			},
 			modal: {
@@ -43,10 +44,21 @@ const AddTaskForm = React.createClass ({
 		this.input_focus.focus()
 	},
 	onTitleChange: function(event) {
+		let task = Object.assign({}, this.state.task, {
+			title: event.target.value
+		})
+
 		this.setState(Object.assign({}, this.state, {
-			task: {
-				title: event.target.value
-			}
+			task: task
+		}))
+	},
+	onDescriptionChange: function(event) {
+		let task = Object.assign({}, this.state.task, {
+			description: event.target.value
+		})
+
+		this.setState(Object.assign({}, this.state, {
+			task: task
 		}));
 	},
 
@@ -61,7 +73,8 @@ const AddTaskForm = React.createClass ({
 
 		this.setState(Object.assign({}, this.state, {
 			task: {
-				title: ""
+				title: "",
+				description: ""
 			}
 		}));
 
@@ -75,10 +88,12 @@ const AddTaskForm = React.createClass ({
 					<input type="button" value="Add task" onClick={this.openModal} />
 				</form>
 				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen} onAfterOpen={this.afterOpenModal}>
-					<h4 className="modal-content-title">Add task</h4>
-					<form className="form taskForm" onSubmit={this.onSubmit}>
-						<label>Task's name</label>
+					<h4 className="modal-content-title">Add Task</h4>
+					<form className="form taskForm" onSubmit={this.onSubmit} autoComplete="off">
+						<label>Task name</label>
 						<input type="text" name="task" placeholder="My Task" value={this.state.task.title} ref={ref => {this.input_focus = ref}} onChange={this.onTitleChange} />
+						<label>Task description</label>
+						<textarea placeholder="Do something..." value={this.state.task.description} onChange={this.onDescriptionChange}></textarea>
 						<div className="modal-content-footer">
 							<input type="submit" value="add" />
 							<hr className="clear"/>

@@ -7,12 +7,12 @@
         margin-top: 20px;
         margin-bottom: 10px;
         padding-bottom: 5px;
-        color: $strong-grey;
+        color: $stronger-grey;
         font-size: 18px;
         border-bottom: 1px solid $strong-grey;
     }
 
-    input[type="text"] {
+    input[type="text"], textarea {
         display: inline-block;
         height: 30px;
         width: 200px;
@@ -35,6 +35,14 @@
         &:-webkit-autofill {
             box-shadow: 0 0 0px 1000px #fff inset;;
         }
+    }
+
+    textarea {
+        display: block;
+        width: calc(100% - 10px);
+        height: 100px;
+        margin: 0;
+        resize: none;
     }
 
     input[type="button"], input[type="submit"] {

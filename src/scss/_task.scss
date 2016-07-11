@@ -15,7 +15,7 @@
 		min-height: 10px;
 		padding: 5px;
 
-		.delete {
+		.task-header-delete {
 			display: inline-block;
 			height: 20px;
 			width: 20px;
@@ -37,15 +37,23 @@
 		border-top: 1px solid rgba($black, 0.3);
 		border-bottom: 1px solid rgba($black, 0.3);
 
-		.title {
+		.task-content-title {
+			display: block;
+			margin-bottom: 10px;
 			cursor: pointer;
 			font-size: 20px;
-			color: rgba($dark, 0.9);
+			color: $blue;
 			text-decoration: none;
 
 			&:hover {
-				color: $blue;
+				text-decoration: underline;
 			}
+		}
+		.task-content-description {
+			display: block;
+			font-size: 18px;
+			color: rgba($dark, 0.8);
+			text-decoration: none;
 		}
 	}
 
@@ -56,13 +64,13 @@
 		min-height: 10px;
 		padding: 5px;
 
-		.time {
+		.task-footer-time {
 			align-items: flex-end;
 			font-size: 12px;
 			color: $strong-grey;
 		}
 
-		.actions {
+		.task-footer-actions {
 			position: absolute;
 			top: 0px;
 			left: 0px;

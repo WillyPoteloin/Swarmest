@@ -26,13 +26,14 @@ const Task = React.createClass ({
 		return (
 			<div className="task">
 				<div className="task-header">
-					<a href="#" className="delete" onClick={this.onDelete}>&times;</a>
+					<a href="#" className="task-header-delete" onClick={this.onDelete}>&times;</a>
 				</div>
 				<div className="task-content">
-					<a href="#" className="title">{this.props.task.title}</a>
+					<a href="#" className="task-content-title">{this.props.task.title}</a>
+					<a href="#" className="task-content-description">{this.props.task.description}</a>
 				</div>
 				<div className="task-footer">
-					<span className="time">{Moment(this.props.task.creation_time, 'X').fromNow(true)}</span>
+					<span className="task-footer-time">{Moment(this.props.task.creation_time, 'X').fromNow(true)}</span>
 				</div>
 			</div>
 		)

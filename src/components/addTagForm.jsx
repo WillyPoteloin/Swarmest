@@ -71,11 +71,11 @@ const AddTagForm = React.createClass ({
 			<div className="form-tag">
 				<a href="#" className="form-tag-open" title="Add tag" onClick={this.openModal}>+</a>
 				<Modal className="modal-content" overlayClassName="modal" isOpen={this.state.modal.isOpen} onAfterOpen={this.afterOpenModal}>
-					<h4 className="modal-content-title">Add tag</h4>
-					<form className="form tagForm" onSubmit={this.onSubmit}>
-						<label>Tag's name</label>
+					<h4 className="modal-content-title">Add Tag</h4>
+					<form className="form tagForm" onSubmit={this.onSubmit} autoComplete="off">
+						<label>Tag name</label>
 						<input type="text" value={this.state.tag.title} name="tag" ref={ref => {this.input_focus = ref}} placeholder="My Tag" onChange={this.onChangeTitle} />
-						<label>Tag's color</label>
+						<label>Tag color</label>
 						<ColorSelector color={this.state.tag.color} onColorChange={this.onColorChange} />
 						<div className="modal-content-footer">
 							<input type="submit" value="add" />
