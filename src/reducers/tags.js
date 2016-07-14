@@ -2,7 +2,18 @@ import * as actionTypes from '../constants/index'
 
 // Define initial state
 const initialState = {
-    items: [],
+    items: [
+        {
+            id: 1,
+            title: 'My Tag',
+            color: '#0277BD'
+        },
+        {
+            id: 2,
+            title: 'Second Tag',
+            color: '#FF8A65'
+        }
+    ],
     filtered_items: null,
     filter_value: "",
     selected_items: []

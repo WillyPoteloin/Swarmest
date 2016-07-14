@@ -31,7 +31,7 @@ const SearchForm = React.createClass ({
 	render() {
 		return (
 			<form className="form searchForm" onSubmit={this.onSearchTaskSubmit} autoComplete="off">
-				<input type="text" name="search" placeholder="Rechercher" value={this.state.value} onChange={this.onSearchTaskChange} />
+				<input type="text" name="search" placeholder="Search" value={this.state.value} onChange={this.onSearchTaskChange} />
 			</form>
 		)
 	}

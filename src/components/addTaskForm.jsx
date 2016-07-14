@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Modal from 'react-modal';
+import AssignTagForm from './assignTagForm';
 import {addTaskAndFilter} from '../actions';
 
 const mapStateToProps = (state) => {
@@ -94,6 +95,8 @@ const AddTaskForm = React.createClass ({
 						<input type="text" name="task" placeholder="My Task" value={this.state.task.title} ref={ref => {this.input_focus = ref}} onChange={this.onTitleChange} />
 						<label>Task description</label>
 						<textarea placeholder="Do something..." value={this.state.task.description} onChange={this.onDescriptionChange}></textarea>
+						<label>Task tags</label>
+						<AssignTagForm />
 						<div className="modal-content-footer">
 							<input type="submit" value="add" />
 							<hr className="clear"/>

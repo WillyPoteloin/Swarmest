@@ -1,0 +1,79 @@
+.assign-tag {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    min-width: 200px;
+    max-width: 500px;
+
+    .assign-tag-selected {
+        display: flex;
+        align-items: center;
+        font-size: 0px;
+        padding: 3px 5px;
+        border: 1px solid $strong-grey;
+
+        .assign-tag-selected-input {
+            display: inline-block;
+            width: auto;
+            min-width: 100px;
+            padding: 0;
+            border: none;
+        }
+
+        .assign-tag-item {
+            height: 20px;
+            margin-right: 5px;
+        }
+    }
+
+    .assign-tag-list {
+        position: absolute;
+        top: 100%;
+        width: calc(100% - 2px);
+        margin-top: 10px;
+        background-color: #fff;
+        border: 1px solid $strong-grey;
+
+        .assign-tag-item {
+            display: block;
+        }
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    .assign-tag-item {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+
+        .tag {
+            .tag-title {
+                font-size: 14px;
+            }
+            .tag-color {
+                height: 15px;
+                width: 15px;
+            }
+        }
+
+        .assign-tag-item-remove {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            transform: rotate(45deg);
+
+            &:hover {
+                color: $blue;
+            }
+        }
+
+        &.selected {
+            background-color: $strong-grey;
+        }
+    }
+}
