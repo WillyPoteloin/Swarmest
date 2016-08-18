@@ -6,7 +6,7 @@ var autoprefixer = require("autoprefixer");
 
 var ROOT_PATH = path.resolve(__dirname);
 
-module.exports = {
+var webpackConfig = {
 	devtool : 'source-map',
 	entry: {
 		app: [path.resolve(ROOT_PATH, "src/index")],
@@ -19,15 +19,6 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{
-				test: /\.scss$/,
-				include: /src/,
-				loader: extractTextWebpackPlugin.extract([
-					'css',
-					'postcss',
-					'sass'
-				])
-			},
 			{
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
 				include: /src/,
@@ -71,6 +62,38 @@ module.exports = {
 			template: path.resolve(ROOT_PATH, 'src/index.html'),
 			inject: true,
 			favicon: path.resolve(ROOT_PATH, 'src/images/favicons/favicon.ico')
+		}),
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 		})
 	]
 };
+
+// Production sepcific config
+if(process.env.NODE_ENV && process.env.NODE_ENV == 'production') {
+	webpackConfig.module.loaders.push({
+		test: /\.scss$/,
+		include: /src/,
+		loader: extractTextWebpackPlugin.extract([
+			'css',
+			'postcss',
+			'sass'
+		])
+	})
+}
+// Development sepcific config
+else {
+	webpackConfig.module.loaders.push({
+		test: /\.scss$/,
+		include: /src/,
+		loaders: [
+			'style',
+			'css',
+			'postcss',
+			'sass'
+		]
+	})
+}
+
+
+module.exports = webpackConfig;
