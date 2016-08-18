@@ -65,6 +65,8 @@ const AssignTagForm = React.createClass({
             selected_tags: selected_tags
         }))
 
+		this.props.afterAddTag();
+
         this.input.focus()
 
     },
@@ -90,6 +92,8 @@ const AssignTagForm = React.createClass({
             filtered_tags: filtered_tags,
             selected_tags: selected_tags
         }))
+
+		this.props.afterRemoveTag();
 
         this.input.focus()
 

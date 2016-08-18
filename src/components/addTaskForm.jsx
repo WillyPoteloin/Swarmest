@@ -62,6 +62,12 @@ const AddTaskForm = React.createClass ({
 			task: task
 		}));
 	},
+	onAddTag: function(tag) {
+		console.log('add tag')
+	},
+	onRemoveTag: function(tag) {
+		console.log('remove tag')
+	},
 
 	onSubmit: function(event) {
 		event.preventDefault();
@@ -96,7 +102,7 @@ const AddTaskForm = React.createClass ({
 						<label>Task description</label>
 						<textarea placeholder="Do something..." value={this.state.task.description} onChange={this.onDescriptionChange}></textarea>
 						<label>Task tags</label>
-						<AssignTagForm />
+						<AssignTagForm afterAddTag={this.onAddTag} afterRemoveTag={this.onRemoveTag} />
 						<div className="modal-content-footer">
 							<input type="submit" value="add" />
 							<hr className="clear"/>
