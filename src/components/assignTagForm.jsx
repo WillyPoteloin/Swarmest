@@ -45,11 +45,13 @@ const AssignTagForm = React.createClass({
     addTagClick: function(tag) {
 
         // Add the tag in the selected_tags array
-        let selected_tags = this.state.selected_tags
-        selected_tags.push(tag)
+        let selected_tags = [
+          ...this.state.selected_tags,
+          tag
+        ]
 
         // Remove the tag from the global tags array
-        let tags = this.state.tags
+        let tags = [...this.state.tags]
         const tags_index = tags.indexOf(tag)
         if(tags_index !== -1) tags.splice(tags_index, 1)
 
@@ -65,7 +67,7 @@ const AssignTagForm = React.createClass({
             selected_tags: selected_tags
         }))
 
-		this.props.afterAddTag();
+		this.props.afterAddTag(tag);
 
         this.input.focus()
 
@@ -93,7 +95,7 @@ const AssignTagForm = React.createClass({
             selected_tags: selected_tags
         }))
 
-		this.props.afterRemoveTag();
+		this.props.afterRemoveTag(tag);
 
         this.input.focus()
 

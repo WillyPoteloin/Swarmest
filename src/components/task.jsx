@@ -6,14 +6,11 @@ import {removeTaskAndFilter} from '../actions/index';
 
 const mapStateToProps = (state) => {
 	return {
+        tags: state.tags.items
 	}
 }
 
 const Task = React.createClass ({
-
-	propTypes: {
-	},
-
 	onDelete: function(event) {
 		event.preventDefault();
 
@@ -23,6 +20,20 @@ const Task = React.createClass ({
 
 	},
 	render() {
+
+		let tags = this.props.task.tags.map((tag_id) => {
+
+			const index = this.props.tags.findIndex(function(tag) {
+				return (tag.id == tag_id) ? true : false
+			})
+
+			const tag = this.props.tags[index]
+
+			return (
+				<Tag key={tag.id} tag={tag} />
+			)
+		})
+
 		return (
 			<div className="task">
 				<div className="task-header">
@@ -33,6 +44,9 @@ const Task = React.createClass ({
 					<a href="#" className="task-content-description">{this.props.task.description}</a>
 				</div>
 				<div className="task-footer">
+					<span className="task-footer-tags">
+						{tags}
+					</span>
 					<span className="task-footer-time">{Moment(this.props.task.creation_time, 'X').fromNow(true)}</span>
 				</div>
 			</div>

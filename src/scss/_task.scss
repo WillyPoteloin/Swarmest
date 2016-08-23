@@ -70,6 +70,14 @@
 			color: $strong-grey;
 		}
 
+		.task-footer-tags {
+			
+			.tag {
+				display: inline-block;
+				margin-left: 5px;
+			}
+		}
+
 		.task-footer-actions {
 			position: absolute;
 			top: 0px;

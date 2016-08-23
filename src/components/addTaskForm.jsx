@@ -18,7 +18,7 @@ const AddTaskForm = React.createClass ({
 			task: {
 				title : "",
 				description : "",
-				tag: null
+				tags: []
 			},
 			modal: {
 				isOpen: false
@@ -63,10 +63,33 @@ const AddTaskForm = React.createClass ({
 		}));
 	},
 	onAddTag: function(tag) {
-		console.log('add tag')
+
+		let tags = [
+			...this.state.task.tags,
+			tag.id
+		]
+
+		let task = Object.assign({}, this.state.task, {
+			tags: tags
+		})
+
+		this.setState(Object.assign({}, this.state, {
+			task: task
+		}))
 	},
 	onRemoveTag: function(tag) {
-		console.log('remove tag')
+		let tags = [...this.state.task.tags]
+		const index = tags.indexOf(tag.id)
+
+		if(index != -1) tags.splice(index, 1)
+
+		let task = Object.assign({}, this.state.task, {
+			tags: tags
+		})
+
+		this.setState(Object.assign({}, this.state, {
+			task: task
+		}))
 	},
 
 	onSubmit: function(event) {
