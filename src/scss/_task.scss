@@ -59,22 +59,25 @@
 
 	.task-footer {
 		display: flex;
-		flex-direction: row-reverse;
+		//flex-direction: row-reverse;
 		align-items: center;
 		min-height: 10px;
 		padding: 5px;
 
 		.task-footer-time {
-			align-items: flex-end;
 			font-size: 12px;
 			color: $strong-grey;
 		}
 
 		.task-footer-tags {
 			
+			flex-grow: 2;
+
 			.tag {
 				display: inline-block;
-				margin-left: 5px;
+				height: 20px;
+				width: 20px;
+				margin-right: -10px;
 			}
 		}
 
