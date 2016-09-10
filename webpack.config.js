@@ -64,8 +64,7 @@ var webpackConfig = {
 			favicon: path.resolve(ROOT_PATH, 'src/images/favicons/favicon.ico')
 		}),
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-			'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 		})
 	]
 };

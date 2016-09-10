@@ -32,6 +32,9 @@ server '149.202.62.154', user: 'willy', roles: %w{web}, port: 650
 # Feel free to add new variables to customise your setup.
 set :application, 'swarmest'
 set :deploy_to, "/var/www/#{fetch(:application)}"
+set :default_env, { 
+  'NODE_ENV' => "production"
+}
 
 
 # Custom SSH Options
