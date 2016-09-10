@@ -31,7 +31,7 @@ const tags = (state = initialState, action) => {
 				return (elem.get('id') == action.id) ? true : false
 			})
 			if(index != -1) tags = tags.splice(index, 1)
-            
+
             return state.set('items', tags)
         case actionTypes.SELECT_TAG:
 			selected_tags = state.get('selected_items')

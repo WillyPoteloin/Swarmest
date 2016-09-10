@@ -5,7 +5,6 @@ const TasksList = React.createClass ({
 
 	render() {
 			let tasks = this.props.filtered_tasks || this.props.tasks
-			console.log(tasks)
 			tasks = tasks.toArray().map((task) => {
 				return (
 					<Task key={task.get('id')} task={task.toObject()} />

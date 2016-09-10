@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import AssignTagForm from './assignTagForm';
 import {addTaskAndFilter} from '../actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
 	return {
 	}
 }

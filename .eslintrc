@@ -1,9 +1,16 @@
 {
+    "plugins": [
+        "react"
+    ],
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true,
             "modules": true
         }
+    },
+    "extends": ["eslint:recommended"],
+    "rules": {
+        "react/jsx-uses-vars": 2
     }
 }

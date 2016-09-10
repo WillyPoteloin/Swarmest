@@ -117,17 +117,17 @@
 	}
 }
 
-@media ('min-width:980px') {
+@media (min-width:980px) {
 	.task {
 		@include setTaskWidth(2);
 	}
 }
-@media ('min-width:1280px') {
+@media (min-width:1280px) {
 	.task {
 		@include setTaskWidth(3);
 	}
 }
-@media ('min-width:1440px') {
+@media (min-width:1440px) {
 	.task {
 		@include setTaskWidth(4);
 	}
