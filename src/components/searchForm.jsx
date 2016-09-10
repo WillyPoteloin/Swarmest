@@ -4,7 +4,7 @@ import {changeFilterValue} from '../actions/index'
 
 const mapStateToProps = (state) => {
 	return {
-		filter_value: state.tasks.filter_value
+		filter_value: state.tasks.get('filter_value')
 	}
 }
 

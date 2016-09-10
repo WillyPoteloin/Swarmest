@@ -6,7 +6,7 @@ import {removeTaskAndFilter} from '../actions/index';
 
 const mapStateToProps = (state) => {
 	return {
-        tags: state.tags.items
+        tags: state.tags.get('items')
 	}
 }
 
@@ -21,16 +21,16 @@ const Task = React.createClass ({
 	},
 	render() {
 
-		let tags = this.props.task.tags.map((tag_id) => {
+		let tags = this.props.task.tags.toArray().map((tag_id) => {
 
 			const index = this.props.tags.findIndex(function(tag) {
-				return (tag.id == tag_id) ? true : false
+				return (tag.get('id') == tag_id) ? true : false
 			})
 
-			const tag = this.props.tags[index]
+			const tag = this.props.tags.get(index)
 
 			return (
-				<Tag key={tag.id} tag={tag} />
+				<Tag key={tag.get('id')} tag={tag.toObject} />
 			)
 		})
 
