@@ -23,14 +23,14 @@ const Task = React.createClass ({
 
 		let tags = this.props.task.tags.toArray().map((tag_id) => {
 
-			const index = this.props.tags.findIndex(function(tag) {
+			const index = this.props.tags.findIndex((tag) => {
 				return (tag.get('id') == tag_id) ? true : false
 			})
 
 			const tag = this.props.tags.get(index)
 
 			return (
-				<Tag key={tag.get('id')} tag={tag.toObject} />
+				<Tag key={tag.get('id')} tag={tag.toObject()} />
 			)
 		})
 

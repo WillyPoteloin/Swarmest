@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from './menu';
 import Toolbar from './toolbar';
-import TasksPannel from './tasksPannel';
+import TasksList from './tasksList';
 
 const App = React.createClass ({
 
@@ -15,7 +15,7 @@ const App = React.createClass ({
 					<Menu />
 					<div className="content-main">
 						<Toolbar />
-						<TasksPannel />
+						<TasksList />
 					</div>
 				</div>
 			</div>

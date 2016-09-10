@@ -66,7 +66,7 @@ const AddTaskForm = React.createClass ({
 
 		let tags = [
 			...this.state.task.tags,
-			tag.id
+			tag.get('id')
 		]
 
 		let task = Object.assign({}, this.state.task, {
@@ -79,7 +79,7 @@ const AddTaskForm = React.createClass ({
 	},
 	onRemoveTag: function(tag) {
 		let tags = [...this.state.task.tags]
-		const index = tags.indexOf(tag.id)
+		const index = tags.indexOf(tag.get('id'))
 
 		if(index != -1) tags.splice(index, 1)
 
