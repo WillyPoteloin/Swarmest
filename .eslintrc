@@ -9,8 +9,13 @@
             "modules": true
         }
     },
+    "env": {
+        "browser": true,
+        "node": true
+    },
     "extends": ["eslint:recommended"],
     "rules": {
+        "no-unused-vars": 1,
         "react/jsx-uses-vars": 2
     }
 }

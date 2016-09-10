@@ -47,7 +47,6 @@ const AddTagForm = React.createClass ({
 		}));
 	},
 	onColorChange: function(color) {
-		event.preventDefault();
 
 		let tag = Object.assign({}, this.state.tag, {
 			color: color

@@ -15,7 +15,7 @@ var webpackConfig = {
 	output: {
 		path: path.resolve(ROOT_PATH, 'build/'),
 		filename: "[name]-[hash].js",
-		publicPath: '/',
+		publicPath: '/'
 	},
 	module: {
 		loaders: [
@@ -44,7 +44,7 @@ var webpackConfig = {
 		inline: true,
 		progress: true,
 		color: true,
-		port: 3000,
+		port: 3000
 	},
 	resolve: {
 		extensions : ['', '.js', '.jsx']

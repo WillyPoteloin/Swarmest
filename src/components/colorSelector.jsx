@@ -18,7 +18,7 @@ const ColorSelector = React.createClass({
         let selected = event.target.getAttribute('color');
 
         this.setState(Object.assign({}, this.state, {
-            selected: selected,
+            selected: selected
         }))
 
         this.props.onColorChange(selected);
